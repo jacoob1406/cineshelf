@@ -1,0 +1,77 @@
+@use "../../styles/mixins" as *;
+
+.carousel {
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  &__title {
+    font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+    color: var(--accent);
+    letter-spacing: var(--title-tracking);
+    text-transform: var(--title-transform);
+  }
+
+  &__description {
+    margin-top: 0.35rem;
+    max-width: 52ch;
+    color: var(--color-muted);
+  }
+
+  // the arrows only make sense once JS is running (the list itself scrolls natively)
+  &__controls {
+    display: none;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  &.is-ready &__controls {
+    @include up(md) {
+      display: flex;
+    }
+  }
+
+  &__button {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: 1.1rem;
+    margin: 0;
+    padding: 0.4rem 0.25rem 1rem;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 0.25rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+  }
+
+  &__slide {
+    flex: 0 0 clamp(138px, 17vw, 190px);
+    scroll-snap-align: start;
+  }
+}

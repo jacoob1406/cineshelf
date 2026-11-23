@@ -1,0 +1,41 @@
+.wishlist {
+  padding-block: 2.5rem 4rem;
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+  }
+
+  &__status {
+    margin-block: 0.75rem 2rem;
+    color: var(--color-muted);
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    max-width: 46ch;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 2rem 1.25rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__remove {
+    align-self: flex-start;
+    padding-block: 0.35rem;
+    font-size: 0.9rem;
+  }
+}

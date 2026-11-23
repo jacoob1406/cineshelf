@@ -1,0 +1,88 @@
+.wishlist-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 1.5rem;
+  border: 0;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    background-color 0.15s,
+    color 0.15s;
+
+  &--angular {
+    border-radius: 2px;
+    padding-inline: 2rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transform: skewX(-12deg);
+    box-shadow: 6px 6px 0 var(--accent-2);
+
+    .wishlist-btn__icon,
+    .wishlist-btn__label {
+      transform: skewX(12deg);
+    }
+
+    &:hover {
+      transform: skewX(-12deg) translate(3px, 3px);
+      box-shadow: 3px 3px 0 var(--accent-2);
+    }
+
+    &.is-active {
+      background: transparent;
+      color: var(--accent);
+      outline: 3px solid var(--accent);
+      outline-offset: -3px;
+    }
+  }
+
+  // comedy: fat pill, bounces
+  &--bubbly {
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: 0 6px 0 var(--accent-2);
+
+    &:hover {
+      animation: wobble 0.45s ease-in-out;
+    }
+
+    &:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 var(--accent-2);
+    }
+
+    &.is-active {
+      background: var(--accent-2);
+      color: var(--accent-contrast);
+      box-shadow: 0 6px 0 var(--accent);
+    }
+  }
+
+  &--ghost {
+    border-radius: 0;
+    background: transparent;
+    color: var(--accent-2);
+    border: 1px solid var(--accent);
+    letter-spacing: 0.05em;
+    box-shadow:
+      0 0 18px rgba(224, 37, 47, 0.35),
+      inset 0 0 18px rgba(224, 37, 47, 0.2);
+
+    &:hover {
+      text-shadow: 0 0 10px var(--accent);
+      animation: flicker 1.2s linear;
+    }
+
+    &.is-active {
+      background: var(--accent);
+      color: var(--accent-contrast);
+    }
+  }
+}

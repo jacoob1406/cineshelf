@@ -1,0 +1,16 @@
+// Single stylesheet entry (linked from index.html so it is part of the server-rendered HTML).
+// Styles stay split into small files: tokens -> themes -> base -> one file per component/page.
+@use "tokens";
+@use "themes";
+@use "base";
+
+@use "../components/Header/Header";
+@use "../components/Poster/Poster";
+@use "../components/FilmCard/FilmCard";
+@use "../components/Carousel/Carousel";
+@use "../components/WishlistButton/WishlistButton";
+
+@use "../pages/HomePage/HomePage";
+@use "../pages/FilmDetailPage/FilmDetailPage";
+@use "../pages/WishlistPage/WishlistPage";
+@use "../pages/ErrorPage/ErrorPage";

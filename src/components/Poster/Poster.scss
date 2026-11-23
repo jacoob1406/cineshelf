@@ -1,0 +1,16 @@
+.poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  background: var(--color-surface);
+
+  &--empty {
+    display: grid;
+    place-items: center;
+    font-size: 2.5rem;
+    color: var(--color-muted);
+    border: 1px dashed var(--color-border);
+  }
+}

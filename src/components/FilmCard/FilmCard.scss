@@ -1,0 +1,38 @@
+.film-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  text-decoration: none;
+
+  .poster {
+    margin-bottom: 0.6rem;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition:
+      outline-color 0.15s,
+      transform 0.15s;
+  }
+
+  &:hover .poster,
+  &:focus-visible .poster {
+    outline-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  &__title {
+    font-weight: 600;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__meta {
+    display: flex;
+    gap: 0.9rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+}

@@ -1,0 +1,67 @@
+@use "sass:map";
+
+// One map per category. Every key becomes a CSS custom property: `accent` -> `--accent`, `font-heading` -> `--font-heading` …
+// Components never know which category they render in – they only read the variables.
+// To add a category: add a map entry here (+ config in src/config/categories.ts).
+$themes: (
+  action: (
+    accent: #ff6b1a,
+    accent-2: #ffb347,
+    accent-contrast: #1a0900,
+    page-bg:
+      "radial-gradient(1100px 520px at 88% -8%, rgba(255, 107, 26, 0.32), transparent 62%), linear-gradient(180deg, #150c06, #0b0705)",
+    font-heading: "'Bebas Neue', Impact, 'Arial Narrow', sans-serif",
+    font-body: "'Barlow', 'Segoe UI', system-ui, sans-serif",
+    frame-radius: 2px,
+    frame-border: "4px solid var(--accent)",
+    frame-clip:
+      "polygon(0 0, 100% 0, 100% calc(100% - 34px), calc(100% - 34px) 100%, 0 100%)",
+    frame-shadow: "none",
+    frame-filter: "saturate(1.2) contrast(1.06)",
+    title-size: clamp(3.2rem, 8vw, 6rem),
+    title-transform: uppercase,
+    title-tracking: 0.03em,
+  ),
+  comedy: (
+    accent: #ffd23f,
+    accent-2: #ff5fa2,
+    accent-contrast: #2a1646,
+    page-bg: "linear-gradient(160deg, #2a1646 0%, #43206b 100%)",
+    page-overlay:
+      "radial-gradient(circle at 20% 25%, rgba(255, 95, 162, 0.2) 0 7px, transparent 8px), radial-gradient(circle at 72% 62%, rgba(255, 210, 63, 0.18) 0 9px, transparent 10px)",
+    page-overlay-size: "150px 150px",
+    font-heading: "'Fredoka', 'Comic Sans MS', 'Trebuchet MS', sans-serif",
+    font-body: "'Nunito', 'Trebuchet MS', system-ui, sans-serif",
+    frame-radius: 30px,
+    frame-border: "6px solid var(--accent)",
+    frame-shadow: "12px 12px 0 var(--accent-2)",
+    frame-transform: rotate(-2deg),
+    title-size: clamp(2.5rem, 6vw, 4.2rem),
+  ),
+  horror: (
+    accent: #e0252f,
+    accent-2: #d9cfc7,
+    accent-contrast: #ffffff,
+    page-bg:
+      "radial-gradient(ellipse 80% 60% at 50% 0%, #2c070a 0%, #070304 72%)",
+    page-overlay:
+      "radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.7) 100%)",
+    font-heading: "'Creepster', 'Papyrus', fantasy",
+    font-body: "'Special Elite', 'Courier New', monospace",
+    frame-radius: 0,
+    frame-border: "1px solid rgba(217, 207, 199, 0.25)",
+    frame-shadow: "0 0 70px rgba(224, 37, 47, 0.45)",
+    frame-filter: "grayscale(0.5) contrast(1.18)",
+    title-size: clamp(3rem, 7.5vw, 5.4rem),
+    title-tracking: 0.04em,
+    title-animation: flicker,
+  ),
+);
+
+@each $name, $theme in $themes {
+  [data-category="#{$name}"] {
+    @each $property, $value in $theme {
+      --#{$property}: #{$value};
+    }
+  }
+}
